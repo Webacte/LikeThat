@@ -1,0 +1,175 @@
+/* Styles pour forcer la taille et l'apparence des icônes personnalisées */
+img[data-custom-icon="true"] {
+  width: 16px !important;
+  height: 16px !important;
+  max-width: 16px !important;
+  max-height: 16px !important;
+  min-width: 16px !important;
+  min-height: 16px !important;
+  /* Juste une ombre pour améliorer la visibilité sans affecter les couleurs */
+  filter: drop-shadow(0 0 2px rgba(0,0,0,0.5)) drop-shadow(0 0 4px rgba(255,255,255,0.3)) !important;
+  transform: scale(1) !important;
+  object-fit: contain !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
+}
+
+/* Styles pour les icônes dans la barre de favoris */
+.bookmarks-bar img[data-custom-icon="true"] {
+  width: 16px !important;
+  height: 16px !important;
+  max-width: 16px !important;
+  max-height: 16px !important;
+}
+
+/* Styles pour les icônes dans les autres favoris */
+.bookmark-item img[data-custom-icon="true"] {
+  width: 16px !important;
+  height: 16px !important;
+  max-width: 16px !important;
+  max-height: 16px !important;
+}
+
+/* Override pour toutes les images avec data-custom-icon */
+.folder-custom-icon[data-custom-icon="true"] {
+  width: 16px !important;
+  height: 16px !important;
+  max-width: 16px !important;
+  max-height: 16px !important;
+  min-width: 16px !important;
+  min-height: 16px !important;
+  /* Juste une ombre pour améliorer la visibilité sans affecter les couleurs */
+  filter: drop-shadow(0 0 2px rgba(0,0,0,0.5)) drop-shadow(0 0 4px rgba(255,255,255,0.3)) !important;
+  object-fit: contain !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
+}
+
+/* Styles pour les icônes dans les tooltips de dossiers */
+.tooltip-folder-icon {
+  width: 12px !important;
+  height: 12px !important;
+  max-width: 12px !important;
+  max-height: 12px !important;
+  min-width: 12px !important;
+  min-height: 12px !important;
+  margin-right: 6px !important;
+  object-fit: contain !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
+}
+
+.tooltip-icon {
+  width: 12px !important;
+  height: 12px !important;
+  max-width: 12px !important;
+  max-height: 12px !important;
+  min-width: 12px !important;
+  min-height: 12px !important;
+  object-fit: contain !important;
+  flex-shrink: 0 !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
+}
+
+/* Filtres de couleur pour les icônes */
+.neon-blue {
+  filter: brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(2476%) hue-rotate(200deg) brightness(118%) contrast(119%) drop-shadow(0 0 2px rgba(0,0,0,0.5)) drop-shadow(0 0 3px rgba(255,255,255,0.3)) !important;
+}
+
+.neon-green {
+  filter: brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(2476%) hue-rotate(90deg) brightness(118%) contrast(119%) drop-shadow(0 0 2px rgba(0,0,0,0.5)) drop-shadow(0 0 3px rgba(255,255,255,0.3)) !important;
+}
+
+.neon-red {
+  filter: brightness(0) saturate(100%) invert(17%) sepia(94%) saturate(7151%) hue-rotate(359deg) brightness(95%) contrast(118%) drop-shadow(0 0 2px rgba(0,0,0,0.5)) drop-shadow(0 0 3px rgba(255,255,255,0.3)) !important;
+}
+
+.neon-purple {
+  filter: brightness(0) saturate(100%) invert(20%) sepia(100%) saturate(7500%) hue-rotate(280deg) brightness(101%) contrast(102%) drop-shadow(0 0 2px rgba(0,0,0,0.5)) drop-shadow(0 0 3px rgba(255,255,255,0.3)) !important;
+}
+
+.neon-orange {
+  filter: brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(2476%) hue-rotate(10deg) brightness(118%) contrast(119%) drop-shadow(0 0 2px rgba(0,0,0,0.5)) drop-shadow(0 0 3px rgba(255,255,255,0.3)) !important;
+}
+
+.neon-pink {
+  filter: brightness(0) saturate(100%) invert(17%) sepia(94%) saturate(7151%) hue-rotate(300deg) brightness(95%) contrast(118%) drop-shadow(0 0 2px rgba(0,0,0,0.5)) drop-shadow(0 0 3px rgba(255,255,255,0.3)) !important;
+}
+
+/* ========================================
+   ANIMATIONS NÉON
+   ======================================== */
+
+/* Animation principale : pulse lumineux doux (respiration)
+   Fait varier l'opacité et légèrement l'échelle pour simuler
+   l'intensité changeante d'une enseigne néon */
+@keyframes neonPulse {
+  0%, 100% {
+    opacity: 1;
+    filter: brightness(1);
+  }
+  50% {
+    opacity: 0.85;
+    filter: brightness(1.15);
+  }
+}
+
+/* Classe générique pour activer l'animation de pulse
+   À ajouter à n'importe quelle icône avec une classe .neon-* */
+.icon-neon {
+  animation: neonPulse 2s ease-in-out infinite;
+}
+
+/* Animation bonus : flicker (clignotement initial comme un néon qui s'allume)
+   Simule les micro-coupures d'un tube néon au démarrage */
+@keyframes neonFlicker {
+  0%, 100% {
+    opacity: 1;
+  }
+  2%, 8%, 12%, 20%, 25%, 40%, 45% {
+    opacity: 0.4;
+  }
+  4%, 10%, 15%, 22%, 42% {
+    opacity: 0.1;
+  }
+  6%, 18%, 28%, 50% {
+    opacity: 1;
+  }
+  55% {
+    opacity: 0.9;
+  }
+  60% {
+    opacity: 1;
+  }
+}
+
+/* Classe pour l'effet de flicker au démarrage
+   L'animation ne joue qu'une fois, puis l'icône reste stable
+   Peut être combinée avec .icon-neon pour avoir flicker + pulse continu */
+.neon-flicker {
+  animation: neonFlicker 1.5s ease-in-out 1;
+}
+
+/* Version combinée : flicker au démarrage puis pulse continu
+   Utilise plusieurs animations séquencées */
+.neon-flicker-pulse {
+  animation: neonFlicker 1.5s ease-in-out 1, neonPulse 2s ease-in-out 1.5s infinite;
+}
+
+/* Variante plus intense du pulse (optionnel)
+   Pour un effet plus prononcé sur certaines icônes */
+@keyframes neonPulseIntense {
+  0%, 100% {
+    opacity: 1;
+    filter: brightness(1) drop-shadow(0 0 4px currentColor);
+  }
+  50% {
+    opacity: 0.75;
+    filter: brightness(1.3) drop-shadow(0 0 8px currentColor);
+  }
+}
+
+.icon-neon-intense {
+  animation: neonPulseIntense 1.5s ease-in-out infinite;
+}

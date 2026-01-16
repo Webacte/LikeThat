@@ -1,0 +1,56 @@
+{
+  "name": "likethat-react",
+  "version": "1.0.0",
+  "description": "Panneau latéral personnalisable pour vos favoris - Version React",
+  "author": "Benjamin Pochon <pochon.benjamin@webacte.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Webacte/LikeThat.git"
+  },
+  "homepage": "https://github.com/Webacte/LikeThat",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "vite": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "build:extension": "node scripts/build-extension.js",
+    "copy:manifest": "copy manifest.json dist\\",
+    "copy:assets": "xcopy /E /I src\\assets dist\\assets && xcopy /E /I src\\styles dist\\styles",
+    "fix:manifest": "node scripts/fix-manifest.js",
+    "dev": "node scripts/dev-simple.js",
+    "dev:debug": "node scripts/dev-unminified.js",
+    "watch": "node scripts/dev-simple.js",
+    "rebuild": "node scripts/dev-simple.js",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest run --coverage",
+    "test:e2e": "node tests/e2e/run-e2e.js"
+  },
+  "dependencies": {
+    "@dnd-kit/core": "^6.3.1",
+    "@dnd-kit/sortable": "^10.0.0",
+    "@dnd-kit/utilities": "^3.2.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "webextension-polyfill": "^0.10.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/react": "^18.2.43",
+    "@types/react-dom": "^18.2.17",
+    "@vitejs/plugin-react": "^4.2.1",
+    "@vitest/coverage-v8": "^4.0.6",
+    "@vitest/ui": "^4.0.6",
+    "chrome-types": "^0.1.384",
+    "happy-dom": "^20.0.10",
+    "nodemon": "^3.0.2",
+    "puppeteer": "^24.28.0",
+    "vite": "^5.0.8",
+    "vite-plugin-web-extension": "^4.1.6",
+    "vitest": "^4.0.6"
+  }
+}

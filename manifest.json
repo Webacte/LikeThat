@@ -1,0 +1,46 @@
+{
+  "manifest_version": 3,
+  "name": "LikeThat",
+  "version": "1.0.0",
+  "description": "Panneau latéral personnalisable pour vos favoris",
+  
+  "permissions": [
+    "bookmarks",
+    "storage",
+    "activeTab",
+    "scripting",
+    "tabs"
+  ],
+  
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  
+  "background": {
+    "service_worker": "src/scripts/background.js"
+  },
+  
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["src/scripts/i18n.js", "content.js"],
+      "run_at": "document_end"
+    }
+  ],
+
+  "options_page": "src/pages/options.html",
+
+  "action": {
+    "default_popup": "src/pages/popup.html",
+    "default_title": "LikeThat - Configuration"
+  },
+  
+  "web_accessible_resources": [
+    {
+      "resources": ["assets/icons/*"],
+      "matches": ["http://*/*", "https://*/*"]
+    }
+  ]
+}
+

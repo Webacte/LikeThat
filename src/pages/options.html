@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="options.title">LikeThat - Options</title>
+    <link rel="stylesheet" href="../styles/options.css">
+    <link rel="stylesheet" href="../styles/custom-icons.css">
+</head>
+<body>
+    <div class="options-shell">
+        <div class="options-nav-column">
+            <aside class="options-sidebar" aria-label="Navigation des catégories">
+                <div class="sidebar-brand">
+                    <div class="brand-logo">LT</div>
+                    <div class="brand-meta">
+                        <span class="brand-title" data-i18n="app.name">LikeThat</span>
+                        <span class="brand-version" data-i18n="options.version">v1.0.0</span>
+                    </div>
+                </div>
+                <p class="sidebar-intro" data-i18n="options.sidebar.intro">Configurez l’extension par thèmes pour garder le contrôle.</p>
+                <nav class="sidebar-tabs" role="tablist">
+                    <button class="tab-button active" role="tab" aria-selected="true" data-category-target="appearance" data-i18n="options.categories.appearance">Apparence</button>
+                    <button class="tab-button" role="tab" aria-selected="false" data-category-target="interactions" data-i18n="options.categories.interactions">Interactions</button>
+                    <button class="tab-button" role="tab" aria-selected="false" data-category-target="personalization" data-i18n="options.categories.personalization">Personnalisation</button>
+                    <button class="tab-button" role="tab" aria-selected="false" data-category-target="newtab" data-i18n="options.categories.newtab">Nouvel onglet</button>
+                </nav>
+            </aside>
+            <div class="options-sidebar-placeholder" aria-hidden="true"></div>
+
+            <aside class="page-hero" aria-label="Résumé des paramètres">
+                <div class="hero-text">
+                    <p class="hero-eyebrow" data-i18n="options.hero.eyebrow">Panneau de favoris</p>
+                    <div class="hero-heading">
+                        <h1 data-i18n="options.hero.title">Paramètres</h1>
+                        <span class="hero-badge" data-i18n="options.hero.badge">Synchronisé</span>
+                    </div>
+                    <p id="activeCategoryDescription" class="hero-description">Réglez l’apparence du panneau, du thème aux animations.</p>
+                </div>
+                <div class="hero-actions">
+                    <button id="saveSettings" class="btn btn-primary" data-i18n="actions.save">Sauvegarder</button>
+                    <button id="resetSettings" class="btn btn-secondary" data-i18n="actions.reset">Réinitialiser</button>
+                </div>
+            </aside>
+            <div class="page-hero-placeholder" aria-hidden="true"></div>
+        </div>
+
+        <main class="options-main">
+            <div class="content-scroll">
+                <div class="category-panel active" data-category="appearance">
+                    <div class="settings-grid">
+                        <!-- Largeur du panneau -->
+                        <section class="setting-section">
+                            <h2 data-i18n="options.width.title">Largeur du panneau</h2>
+                            <div class="setting-group">
+                                <div class="slider-container">
+                                    <input type="range" id="panelWidth" min="200" max="500" value="300" class="slider">
+                                    <div class="slider-value">
+                                        <span id="panelWidthValue">300</span><span data-i18n="options.width.px">px</span>
+                                    </div>
+                                </div>
+                                <div class="slider-labels">
+                                    <span data-i18n="options.width.narrow">Étroit</span>
+                                    <span data-i18n="options.width.wide">Large</span>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Taille des icônes -->
+                        <section class="setting-section">
+                            <h2 data-i18n="options.iconSize.title">Taille des icônes</h2>
+                            <div class="setting-group">
+                                <div class="slider-container">
+                                    <input type="range" id="iconSize" min="12" max="32" value="20" step="2" class="slider">
+                                    <div class="slider-value">
+                                        <span id="iconSizeValue">20</span><span data-i18n="options.iconSize.px">px</span>
+                                    </div>
+                                </div>
+                                <div class="slider-labels">
+                                    <span data-i18n="options.iconSize.small">Petites</span>
+                                    <span data-i18n="options.iconSize.large">Grandes</span>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Taille de la police -->
+                        <section class="setting-section">
+                            <h2 data-i18n="options.fontSize.title">Taille de la police</h2>
+                            <div class="setting-group">
+                                <div class="slider-container">
+                                    <input type="range" id="fontSize" min="12" max="20" value="14" step="1" class="slider">
+                                    <div class="slider-value">
+                                        <span id="fontSizeValue">14</span><span data-i18n="options.fontSize.px">px</span>
+                                    </div>
+                                </div>
+                                <div class="slider-labels">
+                                    <span data-i18n="options.fontSize.small">Petite</span>
+                                    <span data-i18n="options.fontSize.large">Grande</span>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Opacité du panneau -->
+                        <section class="setting-section">
+                            <h2 data-i18n="options.panelOpacity.title">Transparence du panneau</h2>
+                            <div class="setting-group">
+                                <div class="slider-container">
+                                    <input type="range" id="panelOpacity" min="0.5" max="1.0" value="1.0" step="0.05" class="slider">
+                                    <div class="slider-value">
+                                        <span id="panelOpacityValue">100</span><span data-i18n="options.panelOpacity.percent">%</span>
+                                    </div>
+                                </div>
+                                <div class="slider-labels">
+                                    <span data-i18n="options.panelOpacity.transparent">Transparent</span>
+                                    <span data-i18n="options.panelOpacity.opaque">Opaque</span>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Style du panneau -->
+                        <section class="setting-section">
+                            <h2 data-i18n="options.panelStyle.title">Style du panneau</h2>
+                            <p class="setting-description" data-i18n="options.panelStyle.description">Choisissez l'effet visuel du panneau</p>
+                            <div class="panel-style-grid">
+                                <label class="panel-style-option" data-style="flat">
+                                    <input type="radio" name="panelStyle" value="flat" id="panelStyle-flat">
+                                    <div class="panel-style-preview flat">
+                                        <div class="preview-bar"></div>
+                                    </div>
+                                    <span class="panel-style-name">2D Plat</span>
+                                </label>
+                                <label class="panel-style-option" data-style="elevated">
+                                    <input type="radio" name="panelStyle" value="elevated" id="panelStyle-elevated">
+                                    <div class="panel-style-preview elevated">
+                                        <div class="preview-bar"></div>
+                                    </div>
+                                    <span class="panel-style-name">3D Léger</span>
+                                </label>
+                                <label class="panel-style-option" data-style="strong-elevated">
+                                    <input type="radio" name="panelStyle" value="strong-elevated" id="panelStyle-strong-elevated">
+                                    <div class="panel-style-preview strong-elevated">
+                                        <div class="preview-bar"></div>
+                                    </div>
+                                    <span class="panel-style-name">3D Marqué</span>
+                                </label>
+                                <label class="panel-style-option" data-style="fade">
+                                    <input type="radio" name="panelStyle" value="fade" id="panelStyle-fade">
+                                    <div class="panel-style-preview fade">
+                                        <div class="preview-bar"></div>
+                                    </div>
+                                    <span class="panel-style-name">Fondu</span>
+                                </label>
+                                <label class="panel-style-option" data-style="glow">
+                                    <input type="radio" name="panelStyle" value="glow" id="panelStyle-glow">
+                                    <div class="panel-style-preview glow">
+                                        <div class="preview-bar"></div>
+                                    </div>
+                                    <span class="panel-style-name">Lumineux</span>
+                                </label>
+                            </div>
+                        </section>
+
+                        <!-- Thème -->
+                        <section class="setting-section">
+                            <h2 data-i18n="options.theme.title">Thème de couleur</h2>
+                            <p class="setting-description" data-i18n="options.theme.description">Choisissez un thème de couleur (s'adapte au mode clair/sombre)</p>
+                            <div class="theme-grid">
+                                <label class="theme-option" data-theme="ocean">
+                                    <input type="radio" name="theme" value="ocean" id="theme-ocean">
+                                    <div class="theme-preview">
+                                        <div class="theme-color" style="background: #0ea5e9;"></div>
+                                        <div class="theme-color" style="background: #f0f9ff;"></div>
+                                        <div class="theme-color" style="background: #0c4a6e;"></div>
+                                    </div>
+                                    <span class="theme-name">Océan</span>
+                                </label>
+                                <label class="theme-option" data-theme="forest">
+                                    <input type="radio" name="theme" value="forest" id="theme-forest">
+                                    <div class="theme-preview">
+                                        <div class="theme-color" style="background: #10b981;"></div>
+                                        <div class="theme-color" style="background: #f0fdf4;"></div>
+                                        <div class="theme-color" style="background: #064e3b;"></div>
+                                    </div>
+                                    <span class="theme-name">Forêt</span>
+                                </label>
+                                <label class="theme-option" data-theme="sunset">
+                                    <input type="radio" name="theme" value="sunset" id="theme-sunset">
+                                    <div class="theme-preview">
+                                        <div class="theme-color" style="background: #f97316;"></div>
+                                        <div class="theme-color" style="background: #fff7ed;"></div>
+                                        <div class="theme-color" style="background: #7c2d12;"></div>
+                                    </div>
+                                    <span class="theme-name">Coucher de soleil</span>
+                                </label>
+                                <label class="theme-option" data-theme="night">
+                                    <input type="radio" name="theme" value="night" id="theme-night">
+                                    <div class="theme-preview">
+                                        <div class="theme-color" style="background: #8b5cf6;"></div>
+                                        <div class="theme-color" style="background: #faf5ff;"></div>
+                                        <div class="theme-color" style="background: #4c1d95;"></div>
+                                    </div>
+                                    <span class="theme-name">Nuit</span>
+                                </label>
+                                <label class="theme-option" data-theme="rose">
+                                    <input type="radio" name="theme" value="rose" id="theme-rose">
+                                    <div class="theme-preview">
+                                        <div class="theme-color" style="background: #ec4899;"></div>
+                                        <div class="theme-color" style="background: #fdf2f8;"></div>
+                                        <div class="theme-color" style="background: #831843;"></div>
+                                    </div>
+                                    <span class="theme-name">Rose</span>
+                                </label>
+                                <label class="theme-option" data-theme="neutral">
+                                    <input type="radio" name="theme" value="neutral" id="theme-neutral">
+                                    <div class="theme-preview">
+                                        <div class="theme-color" style="background: #64748b;"></div>
+                                        <div class="theme-color" style="background: #f8fafc;"></div>
+                                        <div class="theme-color" style="background: #1e293b;"></div>
+                                    </div>
+                                    <span class="theme-name">Neutre</span>
+                                </label>
+                            </div>
+                        </section>
+
+                        <!-- Mode de couleur -->
+                        <section class="setting-section">
+                            <h2 data-i18n="options.colorMode.title">Mode d'affichage</h2>
+                            <p class="setting-description" data-i18n="options.colorMode.description">Choisissez entre le mode clair, sombre ou automatique</p>
+                            <div class="setting-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="colorMode" value="light" id="colorMode-light">
+                                    <span class="radio-custom"></span>
+                                    <span class="radio-text" data-i18n="options.colorMode.light">☀️ Clair</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="colorMode" value="dark" id="colorMode-dark">
+                                    <span class="radio-custom"></span>
+                                    <span class="radio-text" data-i18n="options.colorMode.dark">🌙 Sombre</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="colorMode" value="auto" id="colorMode-auto">
+                                    <span class="radio-custom"></span>
+                                    <span class="radio-text" data-i18n="options.colorMode.auto">🔄 Automatique</span>
+                                </label>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+
+                <div class="category-panel" data-category="interactions">
+                    <div class="settings-grid">
+                        <!-- Position du panneau -->
+                        <section class="setting-section">
+                            <h2 data-i18n="options.position.title">Position du panneau</h2>
+                            <div class="setting-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="panelPosition" value="right" id="position-right">
+                                    <span class="radio-custom"></span>
+                                    <span class="radio-text" data-i18n="options.position.right">Droite</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="panelPosition" value="left" id="position-left">
+                                    <span class="radio-custom"></span>
+                                    <span class="radio-text" data-i18n="options.position.left">Gauche</span>
+                                </label>
+                            </div>
+                        </section>
+
+                        <!-- Comportement du clic -->
+                        <section class="setting-section">
+                            <h2 data-i18n="options.click.title">Comportement du clic</h2>
+                            <div class="setting-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="clickBehavior" value="current" id="click-current">
+                                    <span class="radio-custom"></span>
+                                    <span class="radio-text" data-i18n="options.click.current">Ouvrir dans l'onglet courant</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="clickBehavior" value="new-tab" id="click-new-tab">
+                                    <span class="radio-custom"></span>
+                                    <span class="radio-text" data-i18n="options.click.newTab">Nouvel onglet</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="clickBehavior" value="new-window" id="click-new-window">
+                                    <span class="radio-custom"></span>
+                                    <span class="radio-text" data-i18n="options.click.newWindow">Nouvelle fenêtre</span>
+                                </label>
+                            </div>
+                        </section>
+
+                        <!-- Mode d'activation -->
+                        <section class="setting-section">
+                            <h2 data-i18n="options.activation.title">Mode d'activation</h2>
+                            <div class="setting-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="useClickMode">
+                                    <span class="checkbox-custom"></span>
+                                    <span class="checkbox-text" data-i18n="options.activation.clickMode">Mode clic (désactive le survol)</span>
+                                </label>
+                            </div>
+                        </section>
+
+                        <!-- Délai de survol -->
+                        <section class="setting-section">
+                            <h2 data-i18n="options.hover.title">Délai de survol</h2>
+                            <div class="setting-group">
+                                <div class="slider-container">
+                                    <input type="range" id="hoverDelay" min="100" max="2000" value="500" step="100" class="slider">
+                                    <div class="slider-value">
+                                        <span id="hoverDelayValue">500</span><span data-i18n="options.hover.ms">ms</span>
+                                    </div>
+                                </div>
+                                <div class="slider-labels">
+                                    <span data-i18n="options.hover.fast">Rapide</span>
+                                    <span data-i18n="options.hover.slow">Lent</span>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+
+                <div class="category-panel" data-category="personalization">
+                    <div class="settings-grid">
+                        <!-- Sites exclus -->
+                        <section class="setting-section">
+                            <h2 data-i18n="options.excluded.title">Sites exclus</h2>
+                            <div class="setting-group">
+                                <p class="setting-description">
+                                    <span data-i18n="options.excluded.description">Ajoutez des domaines à exclure du panneau (un par ligne)</span>
+                                </p>
+                                <textarea id="excludedSites" data-i18n-placeholder="options.excluded.placeholder" rows="4"></textarea>
+                            </div>
+                        </section>
+
+                        <!-- Position de la barre de favoris -->
+                        <section class="setting-section">
+                            <h2 data-i18n="options.bookmarksBar.title">Position de la barre de favoris</h2>
+                            <div class="setting-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="bookmarksBarPosition" value="top" id="bar-top">
+                                    <span class="radio-custom"></span>
+                                    <span class="radio-text" data-i18n="options.bookmarksBar.top">En haut</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="bookmarksBarPosition" value="bottom" id="bar-bottom">
+                                    <span class="radio-custom"></span>
+                                    <span class="radio-text" data-i18n="options.bookmarksBar.bottom">En bas</span>
+                                </label>
+                            </div>
+                        </section>
+
+                        <!-- Recherche sensible à la casse -->
+                        <section class="setting-section">
+                            <h2 data-i18n="options.searchCaseSensitive.title">Recherche des favoris</h2>
+                            <div class="setting-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="searchCaseSensitive">
+                                    <span class="checkbox-custom"></span>
+                                    <span class="checkbox-text" data-i18n="options.searchCaseSensitive.enabled">Prendre en compte la casse dans la recherche</span>
+                                </label>
+                            </div>
+                        </section>
+
+                        <!-- Animation icônes -->
+                        <section class="setting-section">
+                            <h2 data-i18n="options.iconAnimation.title">Animation des icônes</h2>
+                            <div class="setting-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="iconAnimationEnabled">
+                                    <span class="checkbox-custom"></span>
+                                    <span class="checkbox-text" data-i18n="options.iconAnimation.enabled">Activer l'animation néon des icônes personnalisées</span>
+                                </label>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+
+                <div class="category-panel" data-category="newtab">
+                    <section class="setting-section full-width">
+                        <h2 data-i18n="options.newTab.title">Configuration du nouvel onglet</h2>
+                        <p class="setting-description" data-i18n="options.newTab.description">
+                            Choisissez l'URL à ouvrir lorsque vous créez un nouvel onglet. Cela permet au panneau des favoris d'apparaître sur cette page.
+                        </p>
+
+                        <div class="setting-group">
+                            <h3 class="setting-subtitle" data-i18n="options.newTab.searchEngine">Moteur de recherche</h3>
+                            <div class="setting-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="newTabSearchEngine" value="google" id="newTab-google">
+                                    <span class="radio-custom"></span>
+                                    <span class="radio-text" data-i18n="options.newTab.google">Google</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="newTabSearchEngine" value="bing" id="newTab-bing">
+                                    <span class="radio-custom"></span>
+                                    <span class="radio-text" data-i18n="options.newTab.bing">Bing</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="newTabSearchEngine" value="duckduckgo" id="newTab-duckduckgo">
+                                    <span class="radio-custom"></span>
+                                    <span class="radio-text" data-i18n="options.newTab.duckduckgo">DuckDuckGo</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="newTabSearchEngine" value="yahoo" id="newTab-yahoo">
+                                    <span class="radio-custom"></span>
+                                    <span class="radio-text" data-i18n="options.newTab.yahoo">Yahoo</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="newTabSearchEngine" value="ecosia" id="newTab-ecosia">
+                                    <span class="radio-custom"></span>
+                                    <span class="radio-text" data-i18n="options.newTab.ecosia">Ecosia</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="newTabSearchEngine" value="qwant" id="newTab-qwant">
+                                    <span class="radio-custom"></span>
+                                    <span class="radio-text" data-i18n="options.newTab.qwant">Qwant</span>
+                                </label>
+                            </div>
+
+                            <h3 class="setting-subtitle" data-i18n="options.newTab.customUrl">OU URL personnalisée</h3>
+                            <p class="setting-description" data-i18n="options.newTab.customUrlDescription">
+                                Entrez une URL personnalisée (ex: https://example.com). Si remplie, cette URL sera utilisée à la place du moteur de recherche.
+                            </p>
+                            <input 
+                                type="url" 
+                                id="customNewTabUrl" 
+                                placeholder="https://example.com"
+                                class="input-text"
+                                data-i18n-placeholder="options.newTab.placeholder"
+                            >
+                        </div>
+                    </section>
+                </div>
+            </div>
+            
+            <footer class="footer">
+                <p data-i18n="options.footer.version">LikeThat v1.0.0 - Extension Chrome pour la gestion des favoris</p>
+            </footer>
+        </main>
+    </div>
+
+    <!-- Messages de notification -->
+    <div id="notification" class="notification hidden">
+        <span id="notificationText"></span>
+    </div>
+
+    <script type="module" src="../scripts/i18n.js"></script>
+    <script type="module" src="../scripts/options.js"></script>
+</body>
+</html>
+
+

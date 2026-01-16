@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="popup.title">LikeThat</title>
+    <link rel="stylesheet" href="../styles/popup.css">
+    <link rel="stylesheet" href="../styles/custom-icons.css">
+</head>
+<body>
+    <div class="popup-container">
+        <header class="popup-header">
+            <h1 data-i18n="popup.title">LikeThat</h1>
+            <p class="popup-subtitle" data-i18n="popup.subtitle">Panneau de favoris</p>
+        </header>
+        
+        <main class="popup-main">
+            <div class="popup-status">
+                <div class="status-indicator active"></div>
+                <span class="status-text" data-i18n="popup.status.active">Extension active</span>
+            </div>
+            
+            <div class="popup-actions">
+                <button id="openOptions" class="btn btn-primary">
+                    <span class="btn-icon">⚙️</span>
+                    <span data-i18n="popup.actions.options">Options</span>
+                </button>
+                <button id="togglePanel" class="btn btn-secondary">
+                    <span class="btn-icon">📋</span>
+                    <span data-i18n="popup.actions.toggle">Basculer le panneau</span>
+                </button>
+            </div>
+            
+            <div class="popup-info">
+                <div class="info-item">
+                    <span class="info-label" data-i18n="popup.info.position">Position:</span>
+                    <span id="currentPosition" class="info-value">Droite</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label" data-i18n="popup.info.width">Largeur:</span>
+                    <span id="currentWidth" class="info-value">300px</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label" data-i18n="popup.info.theme">Thème:</span>
+                    <span id="currentTheme" class="info-value">Auto</span>
+                </div>
+            </div>
+        </main>
+        
+        <footer class="popup-footer">
+            <p class="popup-version" data-i18n="popup.version">v1.0.0</p>
+        </footer>
+    </div>
+    
+    <script type="module" src="../scripts/i18n.js"></script>
+    <script type="module" src="../scripts/popup.js"></script>
+</body>
+</html>
+
+

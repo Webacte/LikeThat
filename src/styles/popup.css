@@ -1,0 +1,850 @@
+/**
+ * Styles pour le popup de LikeThat
+ */
+
+:root {
+  --primary-color: #007bff;
+  --primary-hover: #0056b3;
+  --secondary-color: #6c757d;
+  --success-color: #28a745;
+  --background-color: #ffffff;
+  --surface-color: #f8f9fa;
+  --border-color: #dee2e6;
+  --text-color: #212529;
+  --text-muted: #6c757d;
+  --shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  --border-radius: 0.375rem;
+  --transition: all 0.15s ease-in-out;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  font-size: var(--font-size, 14px);
+  min-height: 400px;
+}
+
+.popup-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: fixed;
+  height: 100vh;
+  z-index: 1000000000;
+  background: black;
+  /* width: 0; */
+}
+
+/* Header */
+.popup-header {
+  background: linear-gradient(135deg, var(--primary-color), #0056b3);
+  color: white;
+  padding: 20px;
+  text-align: center;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.popup-header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.popup-subtitle {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  font-weight: 300;
+}
+
+/* Main content */
+.popup-main {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Status */
+.popup-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  background: var(--surface-color);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+}
+
+.status-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--success-color);
+  animation: pulse 2s infinite;
+}
+
+.status-indicator.active {
+  background: var(--success-color);
+}
+
+.status-indicator.inactive {
+  background: var(--secondary-color);
+  animation: none;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(40, 167, 69, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(40, 167, 69, 0);
+  }
+}
+
+.status-text {
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+/* Actions */
+.popup-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  text-decoration: none;
+  width: 100%;
+}
+
+.btn-primary {
+  background: var(--primary-color);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow);
+}
+
+.btn-secondary {
+  background: var(--secondary-color);
+  color: white;
+}
+
+.btn-secondary:hover {
+  background: #545b62;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow);
+}
+
+.btn-icon {
+  font-size: 16px;
+}
+
+/* Info */
+.popup-info {
+  background: var(--surface-color);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  padding: 16px;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.info-item:last-child {
+  border-bottom: none;
+}
+
+.info-label {
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.info-value {
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+/* Footer */
+.popup-footer {
+  padding: 15px 20px;
+  text-align: center;
+  border-top: 1px solid var(--border-color);
+  background: var(--surface-color);
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+}
+
+.popup-version {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 400px) {
+  body {
+    width: 280px;
+  }
+  
+  .popup-header {
+    padding: 15px;
+  }
+  
+  .popup-main {
+    padding: 15px;
+  }
+  
+  .popup-footer {
+    padding: 10px 15px;
+  }
+}
+
+/* Themes Color Variables - Mode Clair */
+body[data-theme="ocean"][data-color-mode="light"] {
+  --primary-color: #0ea5e9;
+  --primary-hover: #0284c7;
+  --background-color: #f0f9ff;
+  --surface-color: #e0f2fe;
+  --text-color: #0c4a6e;
+  --text-muted: #075985;
+  --border-color: #bae6fd;
+}
+
+body[data-theme="ocean"][data-color-mode="light"] .popup-header {
+  background: linear-gradient(135deg, #0ea5e9, #0284c7);
+}
+
+body[data-theme="ocean"][data-color-mode="dark"] {
+  --primary-color: #38bdf8;
+  --primary-hover: #0ea5e9;
+  --background-color: #0c1e2e;
+  --surface-color: #1e3a52;
+  --text-color: #e0f2fe;
+  --text-muted: #7dd3fc;
+  --border-color: #164e63;
+}
+
+body[data-theme="ocean"][data-color-mode="dark"] .popup-header {
+  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+}
+
+body[data-theme="forest"][data-color-mode="light"] {
+  --primary-color: #10b981;
+  --primary-hover: #059669;
+  --background-color: #f0fdf4;
+  --surface-color: #dcfce7;
+  --text-color: #064e3b;
+  --text-muted: #065f46;
+  --border-color: #bbf7d0;
+}
+
+body[data-theme="forest"][data-color-mode="light"] .popup-header {
+  background: linear-gradient(135deg, #10b981, #059669);
+}
+
+body[data-theme="forest"][data-color-mode="dark"] {
+  --primary-color: #34d399;
+  --primary-hover: #10b981;
+  --background-color: #0a1f16;
+  --surface-color: #1a3d2b;
+  --text-color: #d1fae5;
+  --text-muted: #6ee7b7;
+  --border-color: #14532d;
+}
+
+body[data-theme="forest"][data-color-mode="dark"] .popup-header {
+  background: linear-gradient(135deg, #34d399, #10b981);
+}
+
+body[data-theme="sunset"][data-color-mode="light"] {
+  --primary-color: #f97316;
+  --primary-hover: #ea580c;
+  --background-color: #fff7ed;
+  --surface-color: #ffedd5;
+  --text-color: #7c2d12;
+  --text-muted: #9a3412;
+  --border-color: #fed7aa;
+}
+
+body[data-theme="sunset"][data-color-mode="light"] .popup-header {
+  background: linear-gradient(135deg, #f97316, #ea580c);
+}
+
+body[data-theme="sunset"][data-color-mode="dark"] {
+  --primary-color: #fb923c;
+  --primary-hover: #f97316;
+  --background-color: #2e1708;
+  --surface-color: #4a2c17;
+  --text-color: #ffedd5;
+  --text-muted: #fdba74;
+  --border-color: #7c2d12;
+}
+
+body[data-theme="sunset"][data-color-mode="dark"] .popup-header {
+  background: linear-gradient(135deg, #fb923c, #f97316);
+}
+
+body[data-theme="night"][data-color-mode="light"] {
+  --primary-color: #8b5cf6;
+  --primary-hover: #7c3aed;
+  --background-color: #faf5ff;
+  --surface-color: #f3e8ff;
+  --text-color: #4c1d95;
+  --text-muted: #6b21a8;
+  --border-color: #ddd6fe;
+}
+
+body[data-theme="night"][data-color-mode="light"] .popup-header {
+  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+}
+
+body[data-theme="night"][data-color-mode="dark"] {
+  --primary-color: #a78bfa;
+  --primary-hover: #8b5cf6;
+  --background-color: #1e1333;
+  --surface-color: #3730a3;
+  --text-color: #e9d5ff;
+  --text-muted: #c4b5fd;
+  --border-color: #4c1d95;
+}
+
+body[data-theme="night"][data-color-mode="dark"] .popup-header {
+  background: linear-gradient(135deg, #a78bfa, #8b5cf6);
+}
+
+body[data-theme="rose"][data-color-mode="light"] {
+  --primary-color: #ec4899;
+  --primary-hover: #db2777;
+  --background-color: #fdf2f8;
+  --surface-color: #fce7f3;
+  --text-color: #831843;
+  --text-muted: #9f1239;
+  --border-color: #fbcfe8;
+}
+
+body[data-theme="rose"][data-color-mode="light"] .popup-header {
+  background: linear-gradient(135deg, #ec4899, #db2777);
+}
+
+body[data-theme="rose"][data-color-mode="dark"] {
+  --primary-color: #f472b6;
+  --primary-hover: #ec4899;
+  --background-color: #2e0a1f;
+  --surface-color: #4a1e37;
+  --text-color: #fce7f3;
+  --text-muted: #f9a8d4;
+  --border-color: #831843;
+}
+
+body[data-theme="rose"][data-color-mode="dark"] .popup-header {
+  background: linear-gradient(135deg, #f472b6, #ec4899);
+}
+
+body[data-theme="neutral"][data-color-mode="light"] {
+  --primary-color: #64748b;
+  --primary-hover: #475569;
+  --background-color: #f8fafc;
+  --surface-color: #f1f5f9;
+  --text-color: #1e293b;
+  --text-muted: #334155;
+  --border-color: #cbd5e1;
+}
+
+body[data-theme="neutral"][data-color-mode="light"] .popup-header {
+  background: linear-gradient(135deg, #64748b, #475569);
+}
+
+body[data-theme="neutral"][data-color-mode="dark"] {
+  --primary-color: #94a3b8;
+  --primary-hover: #64748b;
+  --background-color: #0f172a;
+  --surface-color: #1e293b;
+  --text-color: #e2e8f0;
+  --text-muted: #94a3b8;
+  --border-color: #334155;
+}
+
+body[data-theme="neutral"][data-color-mode="dark"] .popup-header {
+  background: linear-gradient(135deg, #94a3b8, #64748b);
+}
+
+/* Styles pour le drag and drop dans la tooltip - uniformisés avec le panneau principal */
+.tooltip-drag-handle {
+  display: inline-block;
+  margin-right: 6px;
+  color: var(--text-muted);
+  font-size: 12px;
+  cursor: grab;
+  user-select: none;
+}
+
+.tooltip-drag-handle:active {
+  cursor: grabbing;
+}
+
+/* Styles de drag and drop uniformisés avec le panneau principal */
+
+/* Styles pour les zones de drop dans la tooltip */
+.tooltip-header {
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.tooltip-header:hover {
+  background-color: rgba(0, 123, 255, 0.05);
+}
+
+.tooltip-content {
+  transition: background-color 0.2s ease;
+}
+
+.tooltip-content:hover {
+  background-color: rgba(0, 123, 255, 0.02);
+}
+
+/* Indicateurs visuels simplifiés pour les zones de drop */
+.tooltip-item {
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+/* Indicateurs visuels plus discrets et cohérents avec le panneau principal */
+.tooltip-item.drag-over-before::after {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--primary-color) !important;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.tooltip-item.drag-over-inside::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  box-shadow: 0 0 0 2px var(--primary-color) inset !important;
+  background: rgba(0, 123, 255, 0.1) !important;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.tooltip-item.drag-over-after::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--primary-color) !important;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Styles de base pour les éléments de tooltip en mode drag */
+.tooltip-item.dragging {
+  opacity: 0.5 !important;
+  transform: rotate(2deg) !important;
+  transition: all 0.2s ease !important;
+}
+
+.tooltip-item.drag-over-before {
+  box-shadow: 0 -3px 0 0 #007bff inset, 0 -2px 8px rgba(0, 123, 255, 0.3) !important;
+  background-color: rgba(0, 123, 255, 0.15) !important;
+}
+
+.tooltip-item.drag-over-inside {
+  background-color: rgba(0, 123, 255, 0.25) !important;
+  box-shadow: 0 0 0 3px #007bff inset, 0 0 12px rgba(0, 123, 255, 0.4) !important;
+}
+
+.tooltip-item.drag-over-after {
+  box-shadow: 0 3px 0 0 #007bff inset, 0 2px 8px rgba(0, 123, 255, 0.3) !important;
+  background-color: rgba(0, 123, 255, 0.15) !important;
+}
+
+/* Styles pour le dossier parent lors d'un drag depuis le tooltip */
+.folder-wrapper.drag-from-tooltip {
+  box-shadow: 0 0 0 2px #007bff inset, 0 0 15px rgba(0, 123, 255, 0.3) !important;
+  background-color: rgba(0, 123, 255, 0.1) !important;
+  transform: scale(1.02) !important;
+  transition: all 0.2s ease !important;
+}
+
+.folder-wrapper.drag-from-tooltip .bookmark-button {
+  background-color: rgba(0, 123, 255, 0.15) !important;
+  box-shadow: 0 0 0 1px #007bff inset !important;
+}
+
+/* Style pour l'indicateur "inside" sur le header du tooltip */
+.tooltip-header.drag-over-inside {
+  background: linear-gradient(135deg, rgba(0, 123, 255, 0.4), rgba(0, 123, 255, 0.3)) !important;
+  box-shadow: 0 0 0 4px #007bff inset, inset 0 0 20px rgba(0, 123, 255, 0.5), 0 0 20px rgba(0, 123, 255, 0.6) !important;
+  transition: all 0.2s ease !important;
+  z-index: 10 !important;
+  outline: 3px solid #007bff !important;
+  outline-offset: -6px !important;
+}
+
+.tooltip-header.drag-over-inside::before {
+  content: '⬇ DÉPOSER ICI ⬇';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 100;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  animation: pulseBig 0.8s ease-in-out infinite;
+}
+
+@keyframes pulseBig {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+}
+
+.tooltip-header.drag-over-inside::after {
+  content: '↑ Remonter au dossier parent';
+  position: absolute;
+  bottom: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #007bff;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+  z-index: 10000;
+  pointer-events: none;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+  animation: fadeInBounce 0.3s ease;
+}
+
+@keyframes fadeInBounce {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* Styles pour les indicateurs de drag sur les fichiers (BookmarkItem) */
+.bookmark-item.drag-over-before {
+  box-shadow: 0 -3px 0 0 #007bff inset, 0 -2px 8px rgba(0, 123, 255, 0.3) !important;
+  background-color: rgba(0, 123, 255, 0.15) !important;
+}
+
+.bookmark-item.drag-over-after {
+  box-shadow: 0 3px 0 0 #007bff inset, 0 2px 8px rgba(0, 123, 255, 0.3) !important;
+  background-color: rgba(0, 123, 255, 0.15) !important;
+}
+
+/* Styles pour les indicateurs de drag sur les boutons de la barre de favoris (BookmarkButton) */
+.bookmark-button-wrapper.drag-over-before {
+  box-shadow: -3px 0 0 0 #007bff inset, -2px 0 8px rgba(0, 123, 255, 0.3) !important;
+  background-color: rgba(0, 123, 255, 0.15) !important;
+}
+
+.bookmark-button-wrapper.drag-over-after {
+  box-shadow: 3px 0 0 0 #007bff inset, 2px 0 8px rgba(0, 123, 255, 0.3) !important;
+  background-color: rgba(0, 123, 255, 0.15) !important;
+}
+
+/* Style pour la zone "Autres favoris" lors du drag */
+.bookmarks-list.drag-over-drop-zone {
+  background-color: rgba(0, 123, 255, 0.15) !important;
+  box-shadow: 0 0 0 3px #007bff inset, 0 0 15px rgba(0, 123, 255, 0.4) !important;
+  transition: all 0.2s ease !important;
+  position: relative;
+}
+
+.bookmarks-list.drag-over-drop-zone::before {
+  content: '📁 Déposer dans "Autres favoris"';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #007bff;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  z-index: 100;
+  pointer-events: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Style pour la zone de drop de la barre de favoris lors du drag */
+.bookmarks-bar.drag-over-drop-zone {
+  background-color: rgba(0, 123, 255, 0.15) !important;
+  box-shadow: 0 0 0 3px #007bff inset, 0 0 15px rgba(0, 123, 255, 0.4) !important;
+  transition: all 0.2s ease !important;
+}
+
+.folder-wrapper.drag-from-tooltip::before {
+  content: '📁 Déposer ici pour remonter';
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #007bff;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+  z-index: 1000;
+  pointer-events: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Styles pour le menu contextuel */
+.context-menu {
+  background: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.08);
+  min-width: 200px;
+  padding: 6px 0;
+  font-size: 14px;
+  font-weight: 400;
+  user-select: none;
+  animation: contextMenuFadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  /* Fond complètement opaque avec une couleur de fond agréable */
+  background-color: #ffffff !important;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%) !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  pointer-events: auto;
+  /* S'assurer que le menu peut recevoir les événements */
+  touch-action: manipulation;
+  overflow: hidden;
+  /* Forcer l'opacité complète */
+  opacity: 1 !important;
+}
+
+/* Mode sombre pour le menu contextuel */
+body[data-color-mode="dark"] .context-menu,
+body[data-theme][data-color-mode="dark"] .context-menu {
+  background-color: #1c1c1e !important;
+  background: linear-gradient(135deg, #1c1c1e 0%, #252528 100%) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  color: #ffffff !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 4px 8px rgba(0, 0, 0, 0.4) !important;
+  opacity: 1 !important;
+}
+
+@keyframes contextMenuFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.context-menu-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  cursor: pointer !important;
+  transition: background-color 0.15s cubic-bezier(0.4, 0, 0.2, 1), transform 0.1s ease;
+  color: #212529 !important;
+  gap: 12px;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  pointer-events: auto;
+  background-color: transparent;
+  margin: 0 4px;
+  border-radius: 6px;
+  line-height: 1.4;
+  opacity: 1 !important;
+}
+
+/* Pseudo-élément pour le background hover - plus fiable */
+.context-menu-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: transparent;
+  border-radius: 6px;
+  transition: background-color 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* S'assurer que tous les enfants héritent du curseur pointer */
+.context-menu-item * {
+  cursor: pointer !important;
+  position: relative;
+  z-index: 1;
+}
+
+.context-menu-item:hover::before {
+  background-color: rgba(0, 123, 255, 0.12);
+}
+
+.context-menu-item:active::before {
+  background-color: rgba(0, 123, 255, 0.2);
+}
+
+.context-menu-item:hover {
+  color: var(--text-color);
+}
+
+.context-menu-item:active {
+  transform: scale(0.98);
+}
+
+/* Mode clair - hover amélioré */
+body[data-color-mode="light"] .context-menu-item:hover::before,
+body[data-theme][data-color-mode="light"] .context-menu-item:hover::before {
+  background-color: rgba(0, 123, 255, 0.12);
+}
+
+body[data-color-mode="light"] .context-menu-item:active::before,
+body[data-theme][data-color-mode="light"] .context-menu-item:active::before {
+  background-color: rgba(0, 123, 255, 0.2);
+}
+
+/* Mode sombre - hover amélioré */
+body[data-color-mode="dark"] .context-menu-item,
+body[data-theme][data-color-mode="dark"] .context-menu-item {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+body[data-color-mode="dark"] .context-menu-item:hover::before,
+body[data-theme][data-color-mode="dark"] .context-menu-item:hover::before {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+body[data-color-mode="dark"] .context-menu-item:active::before,
+body[data-theme][data-color-mode="dark"] .context-menu-item:active::before {
+  background-color: rgba(255, 255, 255, 0.22);
+}
+
+.context-menu-item:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: -2px;
+}
+
+.context-menu-item-disabled {
+  opacity: 0.5;
+  cursor: not-allowed !important;
+}
+
+.context-menu-item-disabled * {
+  cursor: not-allowed !important;
+}
+
+.context-menu-item-disabled:hover {
+  background-color: transparent !important;
+  transform: none;
+}
+
+.context-menu-item-icon {
+  font-size: 16px;
+  width: 20px;
+  min-width: 20px;
+  max-width: 20px;
+  height: 20px;
+  text-align: center;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  font-weight: normal;
+  vertical-align: middle;
+  /* S'assurer que toutes les icônes (y compris ✕) ont la même taille */
+  box-sizing: border-box;
+}
+
+.context-menu-item-label {
+  flex: 1;
+  white-space: nowrap;
+  font-size: 14px;
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+.context-menu-item-shortcut {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-left: auto;
+  padding-left: 16px;
+  font-weight: 500;
+  opacity: 0.7;
+  letter-spacing: 0.5px;
+}
+
+.context-menu-separator {
+  height: 1px;
+  background-color: var(--border-color);
+  margin: 6px 8px;
+  opacity: 0.3;
+}
+
+
